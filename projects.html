@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | VRP Constructions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0f2044;
+  --navy-deep:#081431;
+  --gold:#d4a02a;
+  --gold-light:#f2c14e;
+  --cream:#faf8f4;
+  --grey:#6b7280;
+  --line:#e7e2d8;
+}
+    /* ===== TOP BAR ===== */
+    .topbar{background:var(--navy-deep); color:#cdd6e8; font-size:13px; padding:8px 0;}
+    .topbar .wrap{display:flex; justify-content:flex-end; gap:28px;}
+    .topbar span{opacity:.85;}
+    .topbar strong{color:var(--gold-light); font-weight:700;}
+
+  /* ===== HEADER ===== */
+  header{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:50;}
+  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{height:100px; width:auto;}
+  nav ul{display:flex; list-style:none; gap:36px;}
+  nav a{font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); padding:6px 0; border-bottom:2px solid transparent;}
+  nav a:hover, nav a.active{color:var(--gold); border-color:var(--gold);}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer;}
+  .burger span{width:26px; height:2px; background:var(--navy);}
+
+
+
+
+.topbar a,
+.contact-info a {
+  color: inherit;       /* same as text color */
+  text-decoration: none; /* remove underline */
+}
+
+.topbar a:hover,
+.contact-info a:hover {
+  color: var(--gold);   /* optional hover effect */
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito Sans',sans-serif;}
+.wrap{max-width:1200px;margin:auto;padding:0 20px;}
+
+/* HEADER */
+header{
+  border-bottom:1px solid var(--line);
+  background:#fff;
+}
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 0;
+}
+nav a{
+  margin-left:25px;
+  text-decoration:none;
+  color:var(--navy);
+  font-weight:600;
+}
+nav a.active{color:var(--gold);}
+
+/* SECTION */
+.section{
+  padding:80px 0;
+  background:var(--cream);
+  text-align:center;
+}
+
+.section h2{
+  font-family:'Poppins';
+  font-size:32px;
+  color:var(--navy);
+}
+.section p{
+  color:var(--grey);
+  margin-top:10px;
+}
+
+/* GRID */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  margin-top:50px;
+}
+
+/* INFO */
+.contact-info{
+  text-align:left;
+}
+.contact-info h3{
+  margin-bottom:20px;
+  color:var(--navy);
+}
+.contact-info p{
+  margin-bottom:20px;
+}
+
+/* FORM */
+.contact-form{
+  background:#fff;
+  padding:30px;
+  border:1px solid var(--line);
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:1px solid var(--line);
+}
+
+.contact-form button{
+  padding:12px 25px;
+  border:none;
+  background:var(--gold);
+  font-weight:600;
+  cursor:pointer;
+}
+/* INFO */
+.contact-info{
+  text-align:left;
+}
+.contact-info h3{
+  margin-bottom:20px;
+  color:var(--navy);
+}
+.contact-info p{
+  margin-bottom:20px;
+}
+
+/* FOOTER */
+footer{
+  background:var(--navy-deep);
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+/* ===== MOBILE NAV ===== */
+@media(max-width:768px){
+
+  /* NAV PANEL */
+  nav{
+    position: fixed;
+    top: 0;
+    left: -260px; /* hide */
+    width: 260px;
+    height: 100%;
+    background: var(--navy);
+    transition: 0.3s ease;
+    z-index: 100;
+  }
+
+  /* SHOW MENU */
+  nav.open{
+    left: 0;
+  }
+
+  /* IMPORTANT: NEVER HIDE UL */
+  nav ul{
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    padding: 0;
+    gap: 0;
+  }
+
+  nav ul li{
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  nav ul li a{
+    display: block;
+    padding: 15px;
+    color: #fff;
+  }
+
+  /* BURGER */
+  .burger{
+    display: flex;
+    cursor: pointer;
+    z-index: 200;
+  }
+
+  .burger span{
+    width: 25px;
+    height: 3px;
+    background: var(--navy);
+  }
+}
+
+
+
+
+
+
+/* HERO */
+.hero{
+  background:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover no-repeat;
+  color:#fff;
+  text-align:center;
+  padding:80px 20px;
+}
+.hero h2{
+  font-size:40px;
+}
+.hero p{
+  font-size:18px;
+}
+
+/* PROJECT GRID */
+.projects{
+  padding:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:15px;
+}
+
+.card-content h3{
+  margin:0;
+  color:var(--navy);
+}
+
+.card-content p{
+  font-size:14px;
+  color:#555;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:8px 16px;
+  background:var(--gold);
+  color:#fff;
+  text-decoration:none;
+  border-radius:5px;
+}
+
+
+</style>
+</head>
+
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <span>
+  <strong>Call:</strong>
+  <a href="tel:+918098092350">+91 80980 92350</a> /
+  <a href="tel:+916380915463">+91 63809 15463</a>
+</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="brand" href="#home">
+      <img src="images/VRP_logo-removebg-preview.png" alt="VRP Constructions logo">
+    </a>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutUs.html">About Us</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+
+
+</div>
+
+<section class="hero">
+  <h2>Our Projects</h2>
+  <p>Building Quality. Delivering Trust.</p>
+</section>
+
+<section class="projects">
+
+  <!-- Project 1 -->
+  <div class="card">
+    <img src="images/BHAVANI -Tkunnathur.jpeg">
+    <div class="card-content">
+      <h3>Modern Individual Villa</h3>
+      <p>Stylish 3BHK independent villa featuring contemporary elevation, secure compound wall, and elegant exterior finishes.</p>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="card">
+    <img src="images/POOPATHIRAJA -Puliangudi.jpeg">
+    <div class="card-content">
+      <h3>Premium Residential Apartment</h3>
+      <p>Well-designed multi-unit residential apartment with modern architecture and efficient space planning for urban living.</p>
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="card">
+    <img src="images/VIGNESH -Kuchnur.jpeg">
+    <div class="card-content">
+      <h3>Ongoing Residential Project</h3>
+      <p>Independent house under construction with strong structural framework and modern design approach.</p>
+    </div>
+  </div>
+
+    <!-- Project 4 -->
+  <div class="card">
+    <img src="images/01.jpg">
+    <div class="card-content">
+      <h3>Contemporary Commercial Building</h3>
+      <p>Modern commercial space with stylish façade design, ideal for offices and business establishments.</p>
+    </div>
+  </div>
+
+    <!-- Project 5 -->
+  <div class="card">
+    <img src="images/02.jpg">
+    <div class="card-content">
+      <h3>Luxury Duplex Villa</h3>
+      <p>Premium duplex villa with elegant balcony design, spacious interiors, and high-end architectural finish.</p>
+    </div>
+  </div>
+
+      <!-- Project 6 -->
+  <div class="card">
+    <img src="images/03.jpg">
+    <div class="card-content">
+      <h3>Designer Residential Villa</h3>
+      <p>A beautifully crafted modern home with unique elevation, blending aesthetics and functionality.</p>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <img src="images/villa.jpeg">
+    <div class="card-content">
+      <h3>Villa</h3>
+      <p>From foundation to finish, we create homes filled with comfort, strength, and lasting value for your family.</p>
+    </div>
+  </div>
+
+</section>
+<!-- CONTACT SECTION -->
+<section class="section">
+  <div class="wrap">
+    <h2>Contact Us</h2>
+    <p>Let’s discuss your project and build your dream home.</p>
+
+    <div class="contact-grid">
+
+      <!-- LEFT -->
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+
+<div class="map-box">
+  <iframe 
+    src="https://www.google.com/maps?q=VRP+Constructions+Theni+Tamil+Nadu&output=embed"
+    width="100%" 
+    height="300" 
+    style="border:0; border-radius:12px;" 
+    allowfullscreen="" 
+    loading="lazy">
+  </iframe>
+</div>
+
+        <p><strong>📞 Call:</strong><br>
+        <a href="tel:+918098092350">+91 80980 92350</a><br>
+        <a href="tel:+916380915463">+91 63809 15463</a></p>
+
+        <p><strong>📧 Email:</strong><br>vrpconstruction100@gmail.com
+
+        <p><strong>🕒 Time:</strong><br>Mon - Sat (9AM - 6PM)</p>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="contact-form">
+        <form>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+          <button type="button" onclick="sendToWhatsApp()">Send</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 VRP Constructions | All Rights Reserved</p>
+</footer>
+<script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("open");
+}
+
+
+function sendToWhatsApp(){
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let phone = document.getElementById("phone").value;
+  let message = document.getElementById("message").value;
+
+  if(name === "" || email === "" || phone === ""){
+    alert("Please fill all required fields");
+    return;
+  }
+
+  let whatsappNumber = "918098092350"; // your number (no +)
+
+  let text = `New Contact Request:%0A
+Name: ${name}%0A
+Email: ${email}%0A
+Phone: ${phone}%0A
+Message: ${message}`;
+
+  let url = `https://wa.me/${whatsappNumber}?text=${text}`;
+
+  window.open(url, "_blank");
+}
+</script>
+</body>
+

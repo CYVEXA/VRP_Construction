@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | VRP Constructions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0f2044;
+  --navy-deep:#081431;
+  --gold:#d4a02a;
+  --gold-light:#f2c14e;
+  --cream:#faf8f4;
+  --grey:#6b7280;
+  --line:#e7e2d8;
+}
+    /* ===== TOP BAR ===== */
+    .topbar{background:var(--navy-deep); color:#cdd6e8; font-size:13px; padding:8px 0;}
+    .topbar .wrap{display:flex; justify-content:flex-end; gap:28px;}
+    .topbar span{opacity:.85;}
+    .topbar strong{color:var(--gold-light); font-weight:700;}
+
+  /* ===== HEADER ===== */
+  header{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:50;}
+  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{height: 100px; width:auto;}
+  nav ul{display:flex; list-style:none; gap:36px;}
+  nav a{font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); padding:6px 0; border-bottom:2px solid transparent;}
+  nav a:hover, nav a.active{color:var(--gold); border-color:var(--gold);}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer;}
+  .burger span{width:26px; height:2px; background:var(--navy);}
+
+
+
+
+.topbar a,
+.contact-info a {
+  color: inherit;       /* same as text color */
+  text-decoration: none; /* remove underline */
+}
+
+.topbar a:hover,
+.contact-info a:hover {
+  color: var(--gold);   /* optional hover effect */
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito Sans',sans-serif;}
+.wrap{max-width:1200px;margin:auto;padding:0 20px;}
+
+/* HEADER */
+header{
+  border-bottom:1px solid var(--line);
+  background:#fff;
+}
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 0;
+}
+nav a{
+  margin-left:25px;
+  text-decoration:none;
+  color:var(--navy);
+  font-weight:600;
+}
+nav a.active{color:var(--gold);}
+
+/* SECTION */
+.section{
+  padding:80px 0;
+  background:var(--cream);
+  text-align:center;
+}
+
+.section h2{
+  font-family:'Poppins';
+  font-size:32px;
+  color:var(--navy);
+}
+.section p{
+  color:var(--grey);
+  margin-top:10px;
+}
+
+/* GRID */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  margin-top:50px;
+}
+
+/* INFO */
+.contact-info{
+  text-align:left;
+}
+.contact-info h3{
+  margin-bottom:20px;
+  color:var(--navy);
+}
+.contact-info p{
+  margin-bottom:20px;
+}
+
+/* FORM */
+.contact-form{
+  background:#fff;
+  padding:30px;
+  border:1px solid var(--line);
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:1px solid var(--line);
+}
+
+.contact-form button{
+  padding:12px 25px;
+  border:none;
+  background:var(--gold);
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  background:var(--navy-deep);
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+/* ===== MOBILE NAV ===== */
+@media(max-width:768px){
+
+  /* NAV PANEL */
+  nav{
+    position: fixed;
+    top: 0;
+    left: -260px; /* hide */
+    width: 260px;
+    height: 100%;
+    background: var(--navy);
+    transition: 0.3s ease;
+    z-index: 100;
+  }
+
+  /* SHOW MENU */
+  nav.open{
+    left: 0;
+  }
+
+  /* IMPORTANT: NEVER HIDE UL */
+  nav ul{
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    padding: 0;
+    gap: 0;
+  }
+
+  nav ul li{
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  nav ul li a{
+    display: block;
+    padding: 15px;
+    color: #fff;
+  }
+
+  /* BURGER */
+  .burger{
+    display: flex;
+    cursor: pointer;
+    z-index: 200;
+  }
+
+  .burger span{
+    width: 25px;
+    height: 3px;
+    background: var(--navy);
+  }
+    .about-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* SECTION */
+.section{
+  padding:80px 0;
+  text-align:center;
+  background:var(--cream);
+}
+.about-section{
+  padding: 80px 0;
+  background: var(--cream);
+}
+
+.about-header{
+  text-align: center;
+  margin-bottom: 50px;
+}
+.about-header h2{
+  font-family: 'Poppins';
+  font-size: 32px;
+  color: var(--navy);
+}
+.about-header p{
+  color: var(--grey);
+  margin-top: 10px;
+}
+
+.about-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-image img{
+  width: 70%;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+.about-image img:hover{
+  transform: scale(1.05);
+}
+
+.about-content h3{
+  margin-top: 20px;
+  color: var(--navy);
+}
+
+.info-box{
+  background: #fff;
+  padding: 15px;
+  border: 1px solid var(--line);
+  margin: 15px 0;
+}
+
+.about-content ul{
+  padding-left: 20px;
+}
+
+.skills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.skills span{
+  background: var(--gold);
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+.skills span:hover{
+  background: var(--navy);
+}
+
+@media(max-width:768px){
+
+  /* ABOUT SECTION */
+  .about-section{
+    padding: 40px 0;
+  }
+
+  .about-header h2{
+    font-size: 24px;
+  }
+
+  .about-header p{
+    font-size: 14px;
+  }
+
+  /* GRID FIX (MOST IMPORTANT) */
+  .about-grid{
+    grid-template-columns: 1fr !important;
+    gap: 25px;
+  }
+
+  /* IMAGE FIX */
+  .about-image{
+    text-align: center;
+  }
+
+  .about-image img{
+    width: 90%;
+    max-width: 280px;
+  }
+
+  /* CONTENT FIX */
+  .about-content{
+    text-align: left;
+  }
+
+  .about-content h3{
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .about-content p{
+    font-size: 14px;
+  }
+
+  /* INFO BOX */
+  .info-box{
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* SKILLS */
+  .skills{
+    justify-content: center;
+  }
+
+  .skills span{
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  /* TOPBAR FIX */
+  .topbar .wrap{
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+  }
+
+
+}
+
+.about-section {
+  padding: 60px 20px;
+  background: #faf8f3;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-container h2 {
+  font-size: 32px;
+  color: #0f2044;
+  margin-bottom: 20px;
+}
+
+.about-container p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.about-container .highlight {
+  font-weight: bold;
+  color: #d4a02a;
+}
+</style>
+</head>
+
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <span>
+  <strong>Call:</strong>
+  <a href="tel:+918098092350">+91 80980 92350</a> /
+  <a href="tel:+916380915463">+91 63809 15463</a>
+</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="brand" href="#home">
+      <img src="images/VRP_logo-removebg-preview.png" alt="VRP Constructions logo">
+    </a>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutUs.html" class="active">About Us</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+
+
+<section class="about-section">
+  <div class="about-container">
+    
+    <h2>About VRP Constructions</h2>
+
+    <p>
+      <strong>VRP Constructions</strong> is a DTCP (Roc.No.274/2024/TD1) registered construction company transforming the dreams of people in Theni since 2019. We are committed to delivering high-quality construction at affordable costs.
+    </p>
+
+    <p>
+      We offer a wide range of services, from construction consulting to complete execution of civil and interior works, catering to different customer needs and budgets.
+    </p>
+
+    <p>
+      Our team consists of creative architects, experienced civil engineers, skilled structural engineers, and dedicated labourers. Together, we ensure high standards in quality construction, timely project delivery, and maximum customer satisfaction.
+    </p>
+
+    <p>
+      With reasonable pricing and excellent quality, VRP Constructions has successfully completed more than <strong>80+ projects</strong> and earned the trust of hundreds of satisfied customers across Theni, Madurai, and Tenkasi.
+    </p>
+
+    <p class="highlight">
+      Today, we are recognized as one of the highest-rated and most recommended construction companies in Theni.
+    </p>
+
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="wrap">
+
+    <!-- TITLE -->
+    <div class="about-header">
+      <span class="tag">About Us</span>
+      <h2>Building Trust with Quality & Innovation</h2>
+      <p>Driven by expertise, powered by passion — delivering excellence in every project.</p>
+    </div>
+
+    <!-- CONTENT GRID -->
+    <div class="about-grid">
+
+      <!-- LEFT IMAGE -->
+      <div class="about-image">
+        <img src="images/vinothphoto.jpg" alt="Vinothkumar - Civil Engineer">
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="about-content">
+
+        <h3>Professional Profile</h3>
+        <p><strong>Vinothkumar</strong> is a dedicated Civil Engineer and Entrepreneur, serving as the Founder of <strong>VRP Constructions</strong>. With a strong vision and technical expertise, he leads projects with precision and innovation.</p>
+
+        <div class="info-box">
+          <p><strong>👤 Name:</strong> Vinothkumar</p>
+          <p><strong>🏢 Designation:</strong> Founder – VRP Constructions</p>
+          <p><strong>💼 Profession:</strong> Civil Engineer & Entrepreneur</p>
+        </div>
+
+        <h3>Education</h3>
+        <ul>
+          <li>B.E. Civil Engineering</li>
+          <li>Master Diploma in Building Design</li>
+        </ul>
+
+        <h3>Experience</h3>
+        <p>With over <strong>7+ years of experience</strong> in the construction industry, he specializes in building planning, 3D architectural design, structural engineering, and project execution.</p>
+
+        <h3>Our Expertise</h3>
+        <div class="skills">
+          <span>Architectural Planning</span>
+          <span>2D & 3D Design</span>
+          <span>Structural Design</span>
+          <span>Construction Execution</span>
+          <span>Project Management</span>
+          <span>Site Supervision</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 VRP Constructions | All Rights Reserved</p>
+</footer>
+<script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("open");
+}
+
+
+</script>
+</body>
