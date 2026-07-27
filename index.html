@@ -211,16 +211,24 @@ body{font-family:'Nunito Sans',sans-serif;}
 }
 
 /* ===== FIXED HEADER ===== */
-header{
+.topbar {
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.topbar.hide {
+  transform: translateY(-100%);
+}
+
+header {
   position: fixed;
-  top: 40px; /* SAME as topbar height */
+  top: 40px;
   left: 0;
   width: 100%;
   background: #fff;
   z-index: 999;
-  border-bottom: 1px solid var(--line);
+  transition: top 0.3s ease;
 }
-
 
 
 .header-inner{
@@ -260,21 +268,7 @@ header{
   }
 
 }
-/* ===== HEADER ===== */
-header{
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:100;
-}
 
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 0;
-}
 
 .brand img{
   height:100px;
@@ -1413,6 +1407,22 @@ Very satisfied with the quality of work and professionalism shown by VRP Constru
 
 
 <script>
+
+window.addEventListener("scroll", function () {
+  const header = document.querySelector("header");
+  const topbar = document.querySelector(".topbar");
+
+  if (window.scrollY > 10) {
+    header.style.top = "0px";     // header goes up
+    topbar.classList.add("hide"); // topbar disappears
+  } else {
+    header.style.top = "40px";    // original position
+    topbar.classList.remove("hide");
+  }
+});
+
+
+
 document.addEventListener("DOMContentLoaded", function(){
 
 // ================= YEAR =================
