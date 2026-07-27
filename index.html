@@ -555,7 +555,6 @@ nav a.active{
 
 
 /* ===== LOGO SLIDER ===== */
-/* ===== LOGO SLIDER ===== */
 
 .logo-slider {
   background: var(--cream);
@@ -564,21 +563,24 @@ nav a.active{
 }
 
 .logo-track {
+  display: flex;
+  justify-content: center;   /* CENTER the whole block */
   overflow-x: auto;
   margin-top: 40px;
   width: 100%;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
 .logo-track::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
 }
 
 .logo-slide {
   display: flex;
   align-items: center;
+  justify-content: center;   /* CENTER logos */
   gap: 40px;
-  width: max-content;
+  flex-wrap: wrap;           /* allows proper centering */
 }
 
 /* Logos */
