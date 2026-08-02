@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VRP Construction - Vision Section</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0f2044;
+  --navy-deep:#081431;
+  --gold:#d4a02a;
+  --gold-light:#f2c14e;
+  --cream:#faf8f4;
+  --grey:#6b7280;
+  --line:#e7e2d8;
+}
+    /* ===== TOP BAR ===== */
+    .topbar{background:var(--navy-deep); color:#cdd6e8; font-size:13px; padding:8px 0;}
+    .topbar .wrap{display:flex; justify-content:flex-end; gap:28px;}
+    .topbar span{opacity:.85;}
+    .topbar strong{color:var(--gold-light); font-weight:700;}
+
+  /* ===== HEADER ===== */
+  header{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:50;}
+  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{height:100px; width:auto;}
+  nav ul{display:flex; list-style:none; gap:36px;}
+  nav a{font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); padding:6px 0; border-bottom:2px solid transparent;}
+  nav a:hover, nav a.active{color:var(--gold); border-color:var(--gold);}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer;}
+  .burger span{width:26px; height:2px; background:var(--navy);}
+
+
+
+
+  .topbar a,
+  .contact-info a {
+    color: inherit;       /* same as text color */
+    text-decoration: none; /* remove underline */
+  }
+
+  .topbar a:hover,
+  .contact-info a:hover {
+    color: var(--gold);   /* optional hover effect */
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Nunito Sans',sans-serif;}
+  .wrap{max-width:1200px;margin:auto;padding:0 20px;}
+
+  /* HEADER */
+  header{
+    border-bottom:1px solid var(--line);
+    background:#fff;
+  }
+  .header-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+  }
+nav a{
+  margin-left:25px;
+  text-decoration:none;
+  color:var(--navy);
+  font-weight:600;
+}
+nav a.active{color:var(--gold);}
+
+/* FOOTER */
+footer{
+  background:var(--navy-deep);
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+/* ===== MOBILE NAV ===== */
+@media(max-width:768px){
+
+  /* NAV PANEL */
+  nav{
+    position: fixed;
+    top: 0;
+    left: -260px; /* hide */
+    width: 260px;
+    height: 100%;
+    background: var(--navy);
+    transition: 0.3s ease;
+    z-index: 100;
+  }
+
+  /* SHOW MENU */
+  nav.open{
+    left: 0;
+  }
+
+  /* IMPORTANT: NEVER HIDE UL */
+  nav ul{
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    padding: 0;
+    gap: 0;
+  }
+
+  nav ul li{
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  nav ul li a{
+    display: block;
+    padding: 15px;
+    color: #fff;
+  }
+
+  /* BURGER */
+  .burger{
+    display: flex;
+    cursor: pointer;
+    z-index: 200;
+  }
+
+  .burger span{
+    width: 25px;
+    height: 3px;
+    background: var(--navy);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  overflow-x:hidden;
+  width:100%;
+}
+
+body{
+  background:#0E0E0E;
+  color:#fff;
+  font-family:Inter, sans-serif;
+  overflow-x:hidden;
+  width:100%;
+}
+
+.vision-section{
+  min-height:200vh;
+  display:flex;
+  width:100%;
+}
+
+.container{
+  display:flex;
+  width:100%;
+  flex-wrap:nowrap;
+}
+
+/* ============ LEFT: VISUAL ============ */
+
+.visual{
+  width:50%;
+  position:sticky;
+  top:0;
+}
+
+.sticky{
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#scene{
+  width:90%;
+  height:auto;
+}
+
+svg{
+  max-width:100%;
+  height:auto;
+}
+
+/* ============ RIGHT: TIMELINE ============ */
+
+.timeline{
+  width:50%;
+  padding:120px 80px;
+}
+
+h1{
+  font-family:Poppins, sans-serif;
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.subtitle{
+  color:#aaa;
+  margin-bottom:60px;
+}
+
+.steps{
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+
+.step{
+  padding:18px 25px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  transition:0.4s;
+  cursor:pointer;
+  border-left:4px solid #444;
+  font-size:17px;
+}
+
+.step.active{
+  border-left:4px solid #D4AF37;
+  color:#D4AF37;
+  transform:translateX(10px);
+}
+
+.step:hover{
+  transform:translateX(6px);
+}
+
+/* ================================
+   RESPONSIVE BREAKPOINTS
+================================ */
+
+/* Laptop / small desktop */
+@media (max-width:1200px){
+
+  .timeline{
+    padding:100px 50px;
+  }
+
+  .visual svg{
+    width:85vw;
+  }
+
+  h1{
+    font-size:36px;
+  }
+}
+
+/* Tablet — keep the image on the left and steps on the right,
+   just tighten the split and spacing since there's less room */
+@media (max-width:900px){
+
+  .visual{
+    width:45%;
+  }
+
+  .visual svg{
+    width:90%;
+  }
+
+  .timeline{
+    width:55%;
+    padding:60px 30px;
+  }
+
+  h1{
+    font-size:28px;
+  }
+
+  .subtitle{
+    margin-bottom:35px;
+    font-size:15px;
+  }
+
+  .steps{
+    gap:18px;
+  }
+
+  .step{
+    padding:14px 16px;
+    font-size:15px;
+  }
+}
+
+/* Mobile — still side by side: narrower image column,
+   more compact type so the steps stay readable */
+@media (max-width:600px){
+
+  .visual{
+    width:40%;
+    padding:0 8px;
+  }
+
+  .sticky{
+    height:100vh;
+  }
+
+  .visual svg{
+    width:100%;
+  }
+
+  .timeline{
+    width:60%;
+    padding:40px 16px;
+  }
+
+  h1{
+    font-size:20px;
+    line-height:1.25;
+  }
+
+  .subtitle{
+    font-size:12px;
+    margin-bottom:22px;
+  }
+
+  .steps{
+    gap:14px;
+  }
+
+  .step{
+    font-size:13px;
+    padding:10px 12px;
+  }
+}
+
+/* Very small phones */
+@media (max-width:380px){
+
+  .visual{
+    width:38%;
+  }
+
+  .timeline{
+    width:62%;
+    padding:30px 12px;
+  }
+
+  h1{
+    font-size:17px;
+  }
+
+  .subtitle{
+    font-size:11px;
+  }
+
+  .step{
+    font-size:12px;
+    padding:9px 10px;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <span>
+  <strong>Call:</strong>
+  <a href="tel:+918098092350">+91 80980 92350</a> /
+  <a href="tel:+916380915463">+91 63809 15463</a>
+</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="brand" href="#home">
+      <img src="images/VRP_logo-removebg-preview.png" alt="VRP Constructions logo">
+    </a>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutUs.html">About Us</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="vision.html" class="active">Our Vision</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+
+
+
+
+
+<section class="vision-section">
+
+<div class="container">
+
+<!-- LEFT -->
+<div class="visual">
+<div class="sticky">
+
+<!-- INLINE SVG -->
+<svg id="scene" viewBox="0 0 800 500">
+
+<!-- SKY -->
+<rect width="800" height="500" fill="#0E0E0E"/>
+
+<!-- GROUND -->
+<rect id="ground" x="0" y="350" width="800" height="150" fill="#1a1a1a"/>
+
+<!-- BLUEPRINT -->
+<g id="blueprint">
+<rect x="260" y="300" width="280" height="60" fill="none" stroke="#D4AF37" stroke-width="2"/>
+</g>
+
+<!-- FOUNDATION -->
+<rect id="foundation" x="280" y="300" width="240" height="25" fill="#555"/>
+
+<!-- COLUMNS -->
+<g id="columns">
+<rect x="300" y="230" width="25" height="70" fill="#888"/>
+<rect x="475" y="230" width="25" height="70" fill="#888"/>
+</g>
+
+<!-- WALLS -->
+<rect id="walls" x="300" y="200" width="200" height="100" fill="#999"/>
+
+<!-- ROOF -->
+<polygon id="roof" points="280,200 400,130 520,200" fill="#444"/>
+
+<!-- WINDOWS -->
+<g id="windows">
+<rect x="330" y="230" width="30" height="30" fill="#222"/>
+<rect x="420" y="230" width="30" height="30" fill="#222"/>
+</g>
+
+<!-- PAINT -->
+<rect id="paint" x="300" y="200" width="200" height="100" fill="#D4AF37" opacity="0.25"/>
+
+<!-- TREES -->
+<g id="trees">
+<circle cx="180" cy="320" r="40" fill="#2e7d32"/>
+<rect x="170" y="320" width="20" height="40" fill="#5d4037"/>
+</g>
+
+<!-- SUN -->
+<circle id="sun" cx="700" cy="90" r="40" fill="#D4AF37"/>
+
+<!-- CLOUDS -->
+<g id="clouds" fill="#aaa">
+<ellipse cx="150" cy="100" rx="50" ry="20"/>
+<ellipse cx="200" cy="100" rx="40" ry="15"/>
+</g>
+
+<!-- BIRDS -->
+<g id="birds" stroke="#fff" stroke-width="2" fill="none">
+<path d="M600 120 Q610 110 620 120"/>
+<path d="M630 130 Q640 120 650 130"/>
+</g>
+
+</svg>
+
+</div>
+</div>
+
+<!-- RIGHT -->
+<div class="timeline">
+
+<h1>FROM VISION TO REALITY</h1>
+
+<p class="subtitle">
+Watch your dream home come to life,
+one carefully crafted step at a time.
+</p>
+
+<div class="steps">
+
+<div class="step active">🌱 Vision</div>
+<div class="step">📐 Blueprint</div>
+<div class="step">🏗 Foundation</div>
+<div class="step">🧱 Columns</div>
+<div class="step">🏠 Walls</div>
+<div class="step">🏡 Roof</div>
+<div class="step">🪟 Windows</div>
+<div class="step">🎨 Painting</div>
+<div class="step">🌳 Landscaping</div>
+<div class="step">✨ Completed</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 VRP Constructions | All Rights Reserved</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("open");
+}
+
+
+function sendToWhatsApp(){
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let phone = document.getElementById("phone").value;
+  let message = document.getElementById("message").value;
+
+  if(name === "" || email === "" || phone === ""){
+    alert("Please fill all required fields");
+    return;
+  }
+
+  let whatsappNumber = "918098092350"; // your number (no +)
+
+  let text = `New Contact Request:%0A
+Name: ${name}%0A
+Email: ${email}%0A
+Phone: ${phone}%0A
+Message: ${message}`;
+
+  let url = `https://wa.me/${whatsappNumber}?text=${text}`;
+
+  window.open(url, "_blank");
+}
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* ELEMENTS */
+const ground = document.querySelector("#ground");
+const blueprint = document.querySelector("#blueprint");
+const foundation = document.querySelector("#foundation");
+const columns = document.querySelector("#columns");
+const walls = document.querySelector("#walls");
+const roof = document.querySelector("#roof");
+const windows = document.querySelector("#windows");
+const paint = document.querySelector("#paint");
+const trees = document.querySelector("#trees");
+const sun = document.querySelector("#sun");
+const clouds = document.querySelector("#clouds");
+const birds = document.querySelector("#birds");
+
+const steps = document.querySelectorAll(".step");
+const totalSteps = steps.length;
+
+/* INITIAL */
+gsap.set([blueprint, foundation, columns, walls, roof, windows, paint, trees, sun], {opacity:0});
+
+/* Ambient motion runs on every screen size */
+gsap.to(clouds,{
+  x:50,
+  repeat:-1,
+  yoyo:true,
+  duration:6,
+  ease:"sine.inOut"
+});
+
+gsap.to(birds,{
+  x:-80,
+  repeat:-1,
+  duration:8,
+  ease:"linear"
+});
+
+/* Explicit "show everything up to this step" states, reused by both
+   the scroll-synced trigger below and the pinned scrub timeline */
+const states = [
+  () => {
+    gsap.set([blueprint, foundation, columns, walls, roof, windows, paint, trees, sun], {opacity:0});
+    gsap.set(ground,{scaleX:1});
+  },
+  () => { gsap.set(blueprint,{opacity:1}); },
+  () => { gsap.set(foundation,{opacity:1}); },
+  () => { gsap.set(columns,{opacity:1, y:-20}); },
+  () => { gsap.set(walls,{opacity:1}); },
+  () => { gsap.set(roof,{opacity:1, y:-30}); },
+  () => { gsap.set(windows,{opacity:1, scale:1.1}); },
+  () => { gsap.set(paint,{opacity:1}); },
+  () => { gsap.set(trees,{opacity:1}); },
+  () => { gsap.set(sun,{opacity:1}); }
+];
+
+/* ================================================
+   PIN + SCRUB TIMELINE — runs at every screen size now that the
+   image (left) / steps (right) layout stays side-by-side all the
+   way down to phones. Pinning the left column keeps the scene on
+   screen while the right column's steps scroll past it.
+================================================== */
+
+const tl = gsap.timeline({
+  scrollTrigger:{
+    trigger:".visual",
+    start:"top top",
+    end:"+=4000",
+    scrub:1.2,
+    pin:".visual",
+    anticipatePin:1
+  }
+});
+
+tl
+  .addLabel("step1")
+  .to(ground,{scaleX:1.1})
+  .addLabel("step2")
+  .to(blueprint,{opacity:1})
+  .addLabel("step3")
+  .to(foundation,{opacity:1})
+  .addLabel("step4")
+  .to(columns,{opacity:1, y:-20})
+  .addLabel("step5")
+  .to(walls,{opacity:1})
+  .addLabel("step6")
+  .to(roof,{opacity:1, y:-30})
+  .addLabel("step7")
+  .to(windows,{opacity:1, scale:1.1})
+  .addLabel("step8")
+  .to(paint,{opacity:1})
+  .addLabel("step9")
+  .to(trees,{opacity:1})
+  .addLabel("step10")
+  .to(sun,{opacity:1});
+
+/* 🔥 STEP SYNC SYSTEM — works the same on every screen size,
+   independent of whether the visual is pinned */
+steps.forEach((step, index)=>{
+
+  ScrollTrigger.create({
+    trigger: step,
+    start: "top center",
+
+    onEnter: () => {
+
+      steps.forEach(s=>s.classList.remove("active"));
+      step.classList.add("active");
+
+      states[0](); // reset base
+      for(let i=1;i<=index;i++){
+        states[i]();
+      }
+    }
+  });
+
+});
+
+
+/* ==========================================
+   AUTO PLAY EACH VISION STEP EVERY 1.5 SEC
+   + MANUAL SCROLL SUPPORT
+   (unchanged logic — just scrolls each step's
+   offsetTop into view, so it works in both the
+   stacked mobile layout and the desktop layout)
+========================================== */
+
+let currentVision = 0;
+let autoPlay;
+let isUserScrolling = false;
+
+const totalVision = steps.length;
+
+function playNextVision(){
+
+  if(isUserScrolling) return;
+
+  currentVision++;
+
+  if(currentVision >= totalVision){
+    currentVision = 0;
+  }
+
+  const targetStep = steps[currentVision];
+
+  window.scrollTo({
+    top: targetStep.offsetTop - window.innerHeight/2,
+    behavior:"smooth"
+  });
+
+}
+
+function startVisionAuto(){
+
+  clearInterval(autoPlay);
+
+  autoPlay = setInterval(()=>{
+    playNextVision();
+  },1500);
+
+}
+
+startVisionAuto();
+
+// Detect manual scrolling
+window.addEventListener("wheel",()=>{
+
+  isUserScrolling = true;
+  clearInterval(autoPlay);
+  clearTimeout(window.resumeAuto);
+
+  window.resumeAuto = setTimeout(()=>{
+    isUserScrolling = false;
+    startVisionAuto();
+  },3000);
+
+});
+
+// Mobile touch
+window.addEventListener("touchstart",()=>{
+  isUserScrolling=true;
+  clearInterval(autoPlay);
+});
+
+window.addEventListener("touchend",()=>{
+  window.resumeAuto=setTimeout(()=>{
+    isUserScrolling=false;
+    startVisionAuto();
+  },3000);
+});
+
+</script>
+
+</body>
+</html>
